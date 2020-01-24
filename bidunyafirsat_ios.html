@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+        window.onload = function () {
+
+            var getLink = document.URL;
+            var contentId = "";
+            var cmd = "";
+
+            if (getLink.toLowerCase().includes("campaign_id")) {
+                var splitLink = getLink.split("campaign_id=");
+                contentId = splitLink[1];
+            }
+
+            if (getLink.toLowerCase().includes("cmd")) {
+                var splitLink = getLink.split("cmd=");
+                cmd = splitLink[1];
+            }
+
+            var userAgent = navigator.appVersion;
+            if (userAgent.toLowerCase().includes("android")) {
+                android(contentId, cmd);
+            }
+            else if (userAgent.toLowerCase().includes("iphone")) {
+                ios(contentId, cmd);
+            }
+            else {
+                window.location.assign("https://bireysel.turktelekom.com.tr/ozel-avantajlar/sayfalar/ana-sayfa.aspx");
+            }
+        }
+
+        function android(contentId, cmd) {
+            setTimeout(function () {
+                    window.location = "http://market.android.com/details?id=com.avea.firsat";
+                }, 150);
+            if (contentId != "") {
+                window.location = "https://bordobereli.github.io/cmd=bidunya_deep_link&campaign_id=" + contentId;
+            }
+            else if(cmd.toLowerCase().includes("bidunya_deep_link")) {
+                window.location = "https://bordobereli.github.io/cmd=bidunya_deep_link";
+            }
+        }
+
+        function ios(contentId, cmd) {
+            window.location = "https://apps.apple.com/tr/app/bi-d%C3%BCnya-f%C4%B1rsat/id739894888?l=tr";
+        }
+    </script>
+<h1>It works!</h1>
+</body>
+</html>
