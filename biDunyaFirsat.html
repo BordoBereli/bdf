@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+        window.onload = function () {
+
+            var userAgent = navigator.appVersion;
+            if (userAgent.toLowerCase().includes("android")) {
+                android();
+            }
+            else if (userAgent.toLowerCase().includes("iphone")) {
+                ios();
+            }
+            else {
+                window.location.assign("https://bireysel.turktelekom.com.tr/ozel-avantajlar/sayfalar/ana-sayfa.aspx");
+            }
+        }
+
+        function android() {
+            window.location = "http://market.android.com/details?id=com.avea.firsat";
+        }
+
+        function ios() {
+            window.location = "https://apps.apple.com/tr/app/bi-d%C3%BCnya-f%C4%B1rsat/id739894888?l=tr";
+        }
+    </script>
+<h1>It works!</h1>
+</body>
+</html>
